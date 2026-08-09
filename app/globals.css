@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #eef0ec;
+  --foreground: #14161b;
+}
+
+* {
+  border-color: rgba(20, 22, 27, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+::selection {
+  background: #ff5a36;
+  color: white;
+}
+
+/* Visible keyboard focus ring, respects the brand accent */
+:focus-visible {
+  outline: 2px solid #ff5a36;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: rgba(20, 22, 27, 0.06);
+}
+.skeleton::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+  animation: shimmer 1.4s infinite;
+}
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.prose-blog {
+  color: #24262e;
+  line-height: 1.75;
+}
+.prose-blog h1, .prose-blog h2, .prose-blog h3 {
+  font-family: "Century Gothic", Futura, Poppins, "Trebuchet MS", ui-sans-serif, sans-serif;
+  font-weight: 600;
+  color: #14161b;
+  margin-top: 1.6em;
+  margin-bottom: 0.5em;
+}
+.prose-blog h1 { font-size: 1.9rem; }
+.prose-blog h2 { font-size: 1.5rem; }
+.prose-blog h3 { font-size: 1.2rem; }
+.prose-blog p { margin: 1em 0; }
+.prose-blog a { color: #e23f1d; text-decoration: underline; text-underline-offset: 2px; }
+.prose-blog ul, .prose-blog ol { margin: 1em 0; padding-left: 1.4em; }
+.prose-blog li { margin: 0.35em 0; }
+.prose-blog blockquote {
+  border-left: 3px solid #ff5a36;
+  padding-left: 1em;
+  color: #4b505c;
+  font-style: italic;
+  margin: 1.2em 0;
+}
+.prose-blog code {
+  background: #e4e6e9;
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-family: "SF Mono", Consolas, Menlo, "Liberation Mono", ui-monospace, monospace;
+  font-size: 0.88em;
+}
+.prose-blog pre {
+  background: #14161b;
+  color: #eef0ec;
+  padding: 1em;
+  border-radius: 10px;
+  overflow-x: auto;
+  margin: 1.2em 0;
+}
+.prose-blog pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+.prose-blog img {
+  border-radius: 12px;
+  margin: 1.4em 0;
+}
